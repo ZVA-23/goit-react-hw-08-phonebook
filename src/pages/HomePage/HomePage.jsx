@@ -20,9 +20,13 @@ const HomePage = () => {
         </span>
       </HomeTitleText>
       <HomeTitleBox>
-        <HomeLink href="/localhost:3000/register">Register</HomeLink>
+        <HomeLink href="/goit-react-hw-08-phonebook/register" to="/register">
+          Register
+        </HomeLink>
         <HomeTitleText>or</HomeTitleText>
-        <HomeLink>Log in</HomeLink>
+        <HomeLink href="/goit-react-hw-08-phonebook/login" to="/login">
+          Log in
+        </HomeLink>
       </HomeTitleBox>
     </HomeWrapper>
   );
