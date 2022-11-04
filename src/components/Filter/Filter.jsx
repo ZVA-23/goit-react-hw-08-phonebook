@@ -9,10 +9,10 @@ export const Filter = () => {
 
   return (
     <label>
-      <span className={css.spanFilter}>Find contacts by name</span>
+      <span>Find contacts by name</span>
       <br />
       <input
-        className={css.inputFilter}
+        // className={css.inputFilter}
         type="text"
         name="filter"
         required
