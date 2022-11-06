@@ -1,6 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filter/filterSlice';
-// import css from './Filter.module.css';
+import { Container } from '../Container/Container';
+import {
+  FilterLabel,
+  FilterTitle,
+  FilterTitleInput,
+  FilterInput,
+} from './Filter.styled';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -8,17 +14,18 @@ export const Filter = () => {
     dispatch(setFilter(value.toLowerCase()));
 
   return (
-    <label>
-      <span>Find contacts by name</span>
-      <br />
-      <input
-        // className={css.inputFilter}
-        type="text"
-        name="filter"
-        required
-        onChange={evt => handelFilter(evt)}
-        placeholder="Enter name for search"
-      />
-    </label>
+    <Container>
+      <FilterLabel>
+        <FilterTitle>Contacts</FilterTitle>
+        <FilterTitleInput>Find contacts by name</FilterTitleInput>
+        <FilterInput
+          type="text"
+          name="filter"
+          required
+          onChange={evt => handelFilter(evt)}
+          placeholder="Enter name for search"
+        />
+      </FilterLabel>
+    </Container>
   );
 };

@@ -7,7 +7,7 @@ export const AuthNav = () => {
         <AuthNavLink to="/register">Register</AuthNavLink>
       </AuthNavItem>
       <AuthNavItem>
-        <AuthNavLink to="/login">Login</AuthNavLink>
+        <AuthNavLink to="/login">Log in</AuthNavLink>
       </AuthNavItem>
     </AuthNavList>
   );

@@ -1,40 +1,12 @@
-// .wrapper {
-//     display: flex;
-//     align-items: center;
-//     gap: 12px;
-// }
-
-// .username {
-//     font-weight: 700;
-// }
-
 import styled from '@emotion/styled';
-// import { BiUser } from 'react-icons/bi';
 
 export const Wrapper = styled.div`
   @media screen and (min-width: 1440px) {
     display: flex;
     align-items: center;
+    gap: 15px;
   }
 `;
-
-export const UsermenuWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  @media screen and (max-width: 767px) {
-    margin-bottom: 20px;
-  }
-  @media screen and (max-width: 1440px) {
-    margin-bottom: 20px;
-  }
-`;
-
-// export const UserIcon = styled(BiUser)`
-//   background-color: var(--accent-text-color);
-//   color: var(--second-text-color);
-//   padding: 10px;
-//   border-radius: 50%;
-// `;
 
 export const UsermenuTextWrapper = styled.div`
   margin-left: 25px;

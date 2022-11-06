@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const WrapContainer = styled.div`
   width: 320px;
   margin: 0 auto;
-  padding: 50px 10px 50px 10px;
+  padding: 50px 10px 0px 10px;
   @media screen and (min-width: 768px) {
     width: 768px;
   }

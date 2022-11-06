@@ -18,7 +18,6 @@ export const NaviLink = styled(NavLink)`
   font-weight: 700;
   letter-spacing: 2px;
   color: var(--main-text-color);
-  /* color: var(--main-hover-animation); */
   transition: color var(--main-hover-animation);
   :hover,
   :focus {

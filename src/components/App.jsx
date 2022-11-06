@@ -2,8 +2,9 @@ import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from '../components/Layout/Layout';
-import NotFounPage from '../pages/NotFounPage/NotFounPage';
 import { fetchCurrentUser } from 'redux/auth/authOperations';
+// import { PrivateRoute } from 'HOCs/PrivateRoute';
+// import { PublicRoute } from 'HOCs/PublicRoute';
 import { useAuth } from 'hooks';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
@@ -18,19 +19,45 @@ export const App = () => {
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
+
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="*" element={<NotFounPage />} />
+        <Route
+          index
+          element={
+            // <PublicRoute>
+            <HomePage />
+            // </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            // <PublicRoute redirectTo="/" restricted>
+            <RegisterPage />
+            // </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            // <PublicRoute redirectTo="/" restricted>
+            <LoginPage />
+            // </PublicRoute>
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            // <PrivateRoute redirectTo="/login">
+            <ContactsPage />
+            // </PrivateRoute>
+          }
+        />
       </Route>
     </Routes>
   );
 };
-
-// https://connections-api.herokuapp.com/docs/

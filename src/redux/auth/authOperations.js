@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/docs/';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 const token = {
   set(token) {
-    axios.defaults.headers.common.Authorization = `Brearer ${token}`;
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
     axios.defaults.headers.common.Authorization = '';
@@ -22,8 +22,6 @@ export const register = createAsyncThunk(
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
-      //   console.log(error.message);
-      //   infoToast('The user is alredy registered');
     }
   }
 );
@@ -34,7 +32,6 @@ export const login = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/login', credentials);
       token.set(data.token);
-      //   console.log(data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -55,13 +52,13 @@ export const logout = createAsyncThunk(
 );
 
 export const fetchCurrentUser = createAsyncThunk(
-  'auth/refresh',
+  'auth/refreshUser',
   async (_, { rejectWithValue, getState }) => {
-    const token = getState().auth.token;
-    if (!token) {
-      return rejectWithValue();
+    const tokenLStor = getState().auth.token;
+    if (!tokenLStor) {
+      return rejectWithValue('');
     }
-    token.set(token);
+    token.set(tokenLStor);
     try {
       const { data } = await axios('/users/current');
       return data;
